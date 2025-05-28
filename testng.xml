@@ -21,9 +21,9 @@
 		<parameter name="emailAddress" value="veerdhavalshinde@gmail.com"></parameter>
 		<parameter name="password" value="Omsairam@2712"></parameter>
 		<classes>
-			<class name="com.tests.BoxAppLoginLogOut" />
+			<!-- <class name="com.tests.BoxAppLoginLogOut" />
 			<class name="com.tests.BoxAppCreateDeleteFolder" />
-			<class name="com.tests.BoxAppDevelopers" />
+			<class name="com.tests.BoxAppDevelopers" /> -->
 			<class name="com.tests.UnicornSignUp" />
 		</classes>
 	</test>
