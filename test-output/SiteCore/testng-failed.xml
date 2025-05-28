@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="10" parallel="tests" data-provider-thread-count="1" name="Failed suite [SiteCore]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.utils.TestListener"/>
+  </listeners>
+  <test thread-count="10" name="Chrome(failed)">
+    <parameter name="emailAddress" value="veerdhavalshinde@gmail.com"/>
+    <parameter name="password" value="Omsairam@2712"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.tests.UnicornSignUp">
+        <methods>
+          <include name="signUp" invocation-numbers="5 6 7 8 9"/>
+          <include name="refreshLog"/>
+          <include name="boxAppLoginPageSteps"/>
+        </methods>
+      </class> <!-- com.tests.UnicornSignUp -->
+    </classes>
+  </test> <!-- Chrome(failed) -->
+</suite> <!-- Failed suite [SiteCore] -->

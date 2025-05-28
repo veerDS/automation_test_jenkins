@@ -1,0 +1,409 @@
+<html>
+<head>
+<title>TestNG:  Edge</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Edge</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>24/5/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu May 09 16:44:30 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>591 seconds (591649 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency09, Dalhass USA, Dalhass, GA, 123090, Select All, Select All, Georgia, Georgia, 0-10, Vineet, Rajpal, vineet@xyz.com</td>
+<td><div><pre>java.lang.AssertionError: Next button cannot be clicked expected [true] but found [false]
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:102)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1766273029", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1766273029'><pre>java.lang.AssertionError: Next button cannot be clicked expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>68</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency06, Mumbai MH, Mumbai, AL, 12306, Select All, Select All, Alabama, Alabama, 0-10, Rakesh, Reddy, rakesh</td>
+<td><div><pre>java.lang.AssertionError: Submit button cannot be clicked expected [true] but found [false]
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:112)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace153480774", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace153480774'><pre>java.lang.AssertionError: Submit button cannot be clicked expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:112)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>70</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency10, Chicago USA, Chicago, NJ, 12310, Builder, Rent, New Jersy, New Jersy, 0-10, Navin, Tirumal, navin@xyz.com</td>
+<td><div><pre>java.lang.AssertionError: New Jersy cannot be selected expected [true] but found [false]
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:92)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1176581688", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1176581688'><pre>java.lang.AssertionError: New Jersy cannot be selected expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:92)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>66</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency07, Delhi HN, , AK, 12307, Builder, Rent, Alaska, Alaska, 0-10, Veer, Shinde, veer@xyz.com</td>
+<td><div><pre>java.lang.AssertionError: Next button cannot be clicked expected [true] but found [false]
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:102)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2114083775", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2114083775'><pre>java.lang.AssertionError: Next button cannot be clicked expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>68</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency08, Ahmedabad GT, Ahmedabad, FL, 12308, Property Broker, Buy/Sell, Florida, Florida, 0-10, Amit, , amit@xyz.com</td>
+<td><div><pre>java.lang.AssertionError: Submit button cannot be clicked expected [true] but found [false]
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:112)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace165097928", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace165097928'><pre>java.lang.AssertionError: Submit button cannot be clicked expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.tests.UnicornSignUp.log(UnicornSignUp.java:131)
+	at com.tests.UnicornSignUp.signUp(UnicornSignUp.java:112)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>68</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.login()'><b>login</b><br>Test class: com.tests.BoxAppDevelopers<br>Parameters: palarakeshreddy@gmail.com, testing123</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.navigateToBox()'><b>navigateToBox</b><br>Test class: com.tests.BoxAppCreateDeleteFolder</td>
+<td></td>
+<td>0</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency02, Hyderabad TL, Hyderabad, AK, 12302, Property Broker, Buy/Sell, Alaska, Alaska, 0-10, Veer, Shinde, veer@xyz.com</td>
+<td></td>
+<td>15</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.createFolder()'><b>createFolder</b><br>Test class: com.tests.BoxAppCreateDeleteFolder</td>
+<td></td>
+<td>14</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.logOutDelete()'><b>logOutDelete</b><br>Test class: com.tests.BoxAppCreateDeleteFolder</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.navigateToUnicornLogin()'><b>navigateToUnicornLogin</b><br>Test class: com.tests.UnicornSignUp</td>
+<td></td>
+<td>22</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.clickDevConsoleButton()'><b>clickDevConsoleButton</b><br>Test class: com.tests.BoxAppDevelopers</td>
+<td></td>
+<td>6</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.logOut()'><b>logOut</b><br>Test class: com.tests.BoxAppDevelopers</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.navigateToSignupPage()'><b>navigateToSignupPage</b><br>Test class: com.tests.UnicornSignUp</td>
+<td></td>
+<td>0</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.loginCreate()'><b>loginCreate</b><br>Test class: com.tests.BoxAppCreateDeleteFolder<br>Parameters: palarakeshreddy@gmail.com, testing123</td>
+<td></td>
+<td>4</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.deleteFolder()'><b>deleteFolder</b><br>Test class: com.tests.BoxAppCreateDeleteFolder</td>
+<td></td>
+<td>19</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.clickGenerateDeveloperTokenButton()'><b>clickGenerateDeveloperTokenButton</b><br>Test class: com.tests.BoxAppDevelopers</td>
+<td></td>
+<td>2</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+<tr>
+<td title='com.tests.BoxAppLoginLogOut.navigateToBoxLogin()'><b>navigateToBoxLogin</b><br>Test class: com.tests.BoxAppLoginLogOut</td>
+<td></td>
+<td>0</td>
+<td>com.tests.BoxAppLoginLogOut@71e9ddb4</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency01, Vizag Ap, Vizag, AL, 12301, Builder, Rent, Alabama, Alabama, 0-10, Rakesh, Reddy, rakesh@xyz.com</td>
+<td></td>
+<td>13</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency03, Pune MH, Pune, FL, 12303, Select All, Select All, Florida, Florida, 0-10, Amit, Dewan, amit@xyz.com</td>
+<td></td>
+<td>14</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.BoxAppLoginLogOut.logOut()'><b>logOut</b><br>Test class: com.tests.BoxAppLoginLogOut</td>
+<td></td>
+<td>7</td>
+<td>com.tests.BoxAppLoginLogOut@71e9ddb4</td></tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.isDeveloperTokenAvailable()'><b>isDeveloperTokenAvailable</b><br>Test class: com.tests.BoxAppDevelopers</td>
+<td></td>
+<td>60</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency04, Bengaluru KA, Bengaluru, GA, 12304, Builder, Rent, Georgia, Georgia, 0-10, Vineet, Rajpal, vineet@xyz.com</td>
+<td></td>
+<td>15</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.UnicornSignUp.signUp()'><b>signUp</b><br>Test class: com.tests.UnicornSignUp<br>Parameters: Agency05, Chennai TN, Chennai, NJ, 12305, Property Broker, Buy/Sell, New Jersey, New Jersey, 0-10, Navin, Tirumal, navin@xyz.com</td>
+<td></td>
+<td>14</td>
+<td>com.tests.UnicornSignUp@5aebe890</td></tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.navigateToBox()'><b>navigateToBox</b><br>Test class: com.tests.BoxAppDevelopers</td>
+<td></td>
+<td>0</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.logOutCreate()'><b>logOutCreate</b><br>Test class: com.tests.BoxAppCreateDeleteFolder</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.BoxAppCreateDeleteFolder.loginDelete()'><b>loginDelete</b><br>Test class: com.tests.BoxAppCreateDeleteFolder<br>Parameters: palarakeshreddy@gmail.com, testing123</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppCreateDeleteFolder@394df057</td></tr>
+<tr>
+<td title='com.tests.BoxAppLoginLogOut.login()'><b>login</b><br>Test class: com.tests.BoxAppLoginLogOut<br>Parameters: palarakeshreddy@gmail.com, testing123</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppLoginLogOut@71e9ddb4</td></tr>
+<tr>
+<td title='com.tests.BoxAppDevelopers.copyDeveloperToken()'><b>copyDeveloperToken</b><br>Test class: com.tests.BoxAppDevelopers</td>
+<td></td>
+<td>3</td>
+<td>com.tests.BoxAppDevelopers@4961f6af</td></tr>
+</table><p>
+</body>
+</html>
