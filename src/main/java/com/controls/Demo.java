@@ -24,6 +24,8 @@ public class Demo {
 		System.out.println(sb);
 		
 		System.out.println(result);
+
+		System.out.println("--------------------------------------------------------------------");
 		
 	}
 
