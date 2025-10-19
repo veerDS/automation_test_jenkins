@@ -7,16 +7,6 @@
 		<listener class-name="com.utils.TestListener"></listener>
 	</listeners>
 	<test parallel="false" name="Chrome">
-
-		<!--<groups>
-			<run>
-				<include 
-					name="smoke">
-				</include>
-			</run>
-		</groups>-->
-
-
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="emailAddress" value="veerdhavalshinde@gmail.com"></parameter>
 		<parameter name="password" value="Omsairam@2712"></parameter>
