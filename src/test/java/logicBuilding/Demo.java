@@ -17,10 +17,10 @@ public class Demo {
 		System.out.println(data);
 		
 		// De-Serialization
-		System.out.println(pojo.getAge());
-		System.out.println(pojo.getUserName());
-		
-		
+        Pojo pojoObject=objectMapper.readValue(data,Pojo.class);
+
+        System.out.println(pojoObject.getUserName());
+        System.out.println(pojoObject.getAge());
 
 	}
 
