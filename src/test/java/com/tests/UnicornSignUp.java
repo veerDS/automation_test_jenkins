@@ -118,12 +118,12 @@ public class UnicornSignUp extends Print {
 		Thread.sleep(1000);
 		}
 
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	public void logOut()throws Throwable {
-		responseFromPage=pageTemplate.clickButton("Profile",boxAppHomePage.getByWithKey("Profile"));
+		responseFromPage=pageTemplate.clickButton("Profile",signupSelfPage.getByWithKey("Profile"));
 		log();
 		Thread.sleep(1000);
-		responseFromPage=pageTemplate.clickButton("LogOut",boxAppHomePage.getByWithKey("LogOut"));
+		responseFromPage=pageTemplate.clickButton("LogOut",signupSelfPage.getByWithKey("LogOut"));
 		log();
 		Thread.sleep(1000);
 		}
