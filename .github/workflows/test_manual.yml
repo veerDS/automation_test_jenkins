@@ -33,6 +33,4 @@ jobs:
           java-version: '21'
 
       - name: Run specified test class
-        run: mvn -B -Dtest="${{ github.event.inputs.test_class }}" \
-         -Dbrowser="${{ github.event.inputs.browser }}" \
-         -DemailAddress="${{ github.event.inputs.emailAddress }}" test
+        run: mvn -B -Dtest="${{ github.event.inputs.test_class }}" -Dbrowser="${{ github.event.inputs.browser }}" -DemailAddress="${{ github.event.inputs.emailAddress }}" test
