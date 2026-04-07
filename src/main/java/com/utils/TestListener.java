@@ -183,19 +183,24 @@ public class TestListener  implements ITestListener,ISuiteListener,IClassListene
 			e.printStackTrace();
 		}
 	}
-	public void configureReport() {
-		htmlReporter = new ExtentSparkReporter("ExtentListenerReportDemo.html");
-		htmlReporter.config().setDocumentTitle("Extent Listener Report Demo");
-		htmlReporter.config().setReportName("This is my first Report");
-		htmlReporter.config().setTheme(Theme.STANDARD);
-		reports = new ExtentReports();
-		reports.setAnalysisStrategy(AnalysisStrategy.SUITE);
-		reports.setSystemInfo("Name","Rakesh");
-		reports.setSystemInfo("Machine","Test");
-		reports.setSystemInfo("OS","Windows11");
-		reports.attachReporter(htmlReporter);
-	}
-	public String addCounts(String key, String line) {
+    public void configureReport() {
+        // Always write into target/extent-reports
+        String reportPath = System.getProperty("user.dir") + "/target/extent-reports/ExtentReport.html";
+
+        htmlReporter = new ExtentSparkReporter(reportPath);
+        htmlReporter.config().setDocumentTitle("Extent Listener Report Demo");
+        htmlReporter.config().setReportName("This is my first Report");
+        htmlReporter.config().setTheme(Theme.STANDARD);
+
+        reports = new ExtentReports();
+        reports.setAnalysisStrategy(AnalysisStrategy.SUITE);
+        reports.setSystemInfo("Name", "AMD64");
+        reports.setSystemInfo("Machine", "Test");
+        reports.setSystemInfo("OS", "Windows11");
+        reports.attachReporter(htmlReporter);
+    }
+
+    public String addCounts(String key, String line) {
 		String val=line;
 		boolean isSkip=false;
 		switch(key) {
