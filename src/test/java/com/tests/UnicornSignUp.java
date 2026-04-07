@@ -3,14 +3,12 @@ package com.tests;
 import static com.webDriver.GlobalDriver.getGlobalDriver;
 import static com.webDriver.GlobalDriver.selectBrowser;
 import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import com.pages.PageTemplate;
 import com.pages.UnicornHomePage;
 import com.pages.UnicornSignupAgencyPage;
@@ -61,8 +59,7 @@ public class UnicornSignUp extends Print {
 		}
 
 	
-	
-	@Test(groups = "smoke", priority = 3,dataProvider="unicornSignup", dataProviderClass = DataAccess.class)
+// @Test(groups = "smoke", priority = 3,dataProvider="unicornSignup", dataProviderClass = DataAccess.class)
 	public void signUp(String agencyName,String agencyAddress,String city,String state,String zipCode,
 			String businessType,String dealsType,String businessLocation,String dealingStates,
 			String noOfEmployes,String firstName,String lastName,String emailAddress )throws Throwable {
@@ -120,15 +117,16 @@ public class UnicornSignUp extends Print {
 		log();
 		Thread.sleep(1000);
 		}
-//	@Test(priority = 3)
-//	public void logOut()throws Throwable {
-//		responseFromPage=pageTemplate.clickButton("Profile",boxAppHomePage.getByWithKey("Profile"));
-//		log();
-//		Thread.sleep(1000);
-//		responseFromPage=pageTemplate.clickButton("LogOut",boxAppHomePage.getByWithKey("LogOut"));
-//		log();
-//		Thread.sleep(1000);
-//		}
+
+	@Test(priority = 3)
+	public void logOut()throws Throwable {
+		responseFromPage=pageTemplate.clickButton("Profile",boxAppHomePage.getByWithKey("Profile"));
+		log();
+		Thread.sleep(1000);
+		responseFromPage=pageTemplate.clickButton("LogOut",boxAppHomePage.getByWithKey("LogOut"));
+		log();
+		Thread.sleep(1000);
+		}
 	public void log() {
 		assertTrue(responseFromPage.isTrue(),responseFromPage.getMessage());
 		log = logExtent(log,responseFromPage.getMessage());
