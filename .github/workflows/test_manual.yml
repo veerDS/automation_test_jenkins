@@ -8,6 +8,16 @@ on:
         default: 'UnicornSignUp'
         required: true
         type: string
+      browser:
+        description: 'Browser to run tests on'
+        default: 'chrome'
+        required: true
+        type: string
+      emailAddress:
+        description: 'Email address for login'
+        default: 'test@example.com'
+        required: true
+        type: string
 
 jobs:
   run-unicorn-signup:
@@ -23,4 +33,6 @@ jobs:
           java-version: '21'
 
       - name: Run specified test class
-        run: mvn -B -Dtest="${{ github.event.inputs.test_class }}" test
+        run: mvn -B -Dtest="${{ github.event.inputs.test_class }}" \
+         -Dbrowser="${{ github.event.inputs.browser }}" \
+         -DemailAddress="${{ github.event.inputs.emailAddress }}" test
