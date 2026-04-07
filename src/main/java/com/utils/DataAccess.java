@@ -8,11 +8,15 @@ public class DataAccess {
 	
 	@DataProvider(name="unicornSignup")
 	public String [][] unicornSignup() throws IOException{
-		return getDatabyPath(".\\TestData\\unicornSignup.xlsx");
+		String baseDir = System.getProperty("user.dir");
+		String path = baseDir + "/TestData/unicornSignup.xlsx";
+		return getDatabyPath(path);
 	}
 	@DataProvider(name="unicornSignupD",parallel=true)
 	public String [][] unicornSignupD() throws IOException{
-		return getDatabyPath(".\\TestData\\unicornSignupD.xlsx");
+		String baseDir = System.getProperty("user.dir");
+		String path = baseDir + "/TestData/unicornSignupD.xlsx";
+		return getDatabyPath(path);
 	}
 	@DataProvider(name="data")
 	public String [][] getData() throws IOException{
