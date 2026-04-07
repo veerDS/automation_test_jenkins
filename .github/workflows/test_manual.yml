@@ -37,3 +37,11 @@ jobs:
           
       - name: Run specified test class
         run: mvn -B -Dtest="${{ github.event.inputs.test_class }}" -Dbrowser="${{ github.event.inputs.browser }}" -DemailAddress="${{ github.event.inputs.emailAddress }}" test
+
+      - name: Upload Report Files
+        uses: actions/upload-artifact@v3
+        with:
+          name: extent-report
+          path: target/ExtentReport
+          retention-days: 5
+          
