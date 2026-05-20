@@ -1,9 +1,9 @@
 name: Automated API tests using Postman CLI
 
-# on: workflow_dispatch 
-on:
-  schedule:
-    - cron: "0 9 * * *"     
+on: workflow_dispatch 
+#on:
+#  schedule:
+#    - cron: "0 9 * * *"     
 jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
