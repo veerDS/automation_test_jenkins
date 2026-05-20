@@ -15,15 +15,18 @@ jobs:
 
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-
+      
+      - name: Install Newman
+        run: npm install -g newman
+      
       - name: Run API tests
         id: postman_tests
         continue-on-error: true
         run: |
-          postman collection run "32728476-b018df59-1211-4501-a204-a08f64ee2e53" \
-            --reporters cli,json,junit \
-            --reporter-json-export results/report.json \
-            --reporter-junit-export results/report.html
+          newman run "32728476-b018df59-1211-4501-a204-a08f64ee2e53" \
+          -r html,json \
+          --reporter-html-export results/report.html \
+          --reporter-json-export results/report.json
 
       - name: Upload Reports
         if: always()
