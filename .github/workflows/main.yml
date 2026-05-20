@@ -35,6 +35,8 @@ jobs:
             echo "| **Postman API Collection** | ✅ Passed | TEST |" >> $GITHUB_STEP_SUMMARY
           else
             echo "| **Postman API Collection** | ❌ Failed | TEST |" >> $GITHUB_STEP_SUMMARY
-            # This ensures the overall workflow still fails if the tests failed
-            exit 1
           fi
+
+      - name: Report Final Status
+        run: exit 1
+        if: steps.postman_tests.outcome == 'failure'
