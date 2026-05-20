@@ -23,10 +23,11 @@ jobs:
         id: postman_tests
         continue-on-error: true
         run: |
-          newman run "32728476-b018df59-1211-4501-a204-a08f64ee2e53" \
-          -r html,json \
-          --reporter-html-export results/report.html \
-          --reporter-json-export results/report.json
+          postman collection run "32728476-b018df59-1211-4501-a204-a08f64ee2e53" \
+            --reporters cli,json,junit \
+            --reporter-json-export results/report.json \
+            --reporter-junit-export results/report.xml \
+            --reporter-junit-export results/report.html
 
       - name: Upload Reports
         if: always()
