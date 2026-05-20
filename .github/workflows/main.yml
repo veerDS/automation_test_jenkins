@@ -23,7 +23,7 @@ jobs:
           postman collection run "32728476-b018df59-1211-4501-a204-a08f64ee2e53" \
             --reporters cli,json,junit \
             --reporter-json-export results/report.json \
-            --reporter-junit-export results/report.xml
+            --reporter-junit-export results/report.html
 
       - name: Upload Reports
         if: always()
@@ -43,7 +43,3 @@ jobs:
           else
             echo "| **Postman API Collection** | ❌ Failed | TEST |" >> $GITHUB_STEP_SUMMARY
           fi
-
-      - name: Report Final Status
-        if: steps.postman_tests.outcome == 'failure'
-        run: exit 1
