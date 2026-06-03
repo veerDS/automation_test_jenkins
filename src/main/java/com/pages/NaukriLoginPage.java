@@ -1,6 +1,7 @@
 package com.pages;
 
 import com.controls.SeleniumControls;
+import com.utils.Constants;
 import com.utils.ResponseFromPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.File;
+import java.time.Duration;
 
 public class NaukriLoginPage extends SeleniumControls {
     WebDriver driver;
@@ -17,14 +19,15 @@ public class NaukriLoginPage extends SeleniumControls {
     String fixedXpathExample = "//div[@id='content']//a[text()='";
 
     By loginBtnBy = By.xpath("//a[@id='login_Layer']");
-    By byUserName = By.xpath("//input[@placeholder=\"Enter your active Email ID / Username\"]");
-    By byPassword = By.xpath("//input[@placeholder=\"Enter your password\"]");
-    By bySignIn = By.xpath("//button[text()=\"Login\"]");
+    By byUserName = By.xpath("//input[@id='usernameField']");
+    By byPassword = By.xpath("//input[@id='passwordField']");
+    By bySignIn = By.xpath("//button[text()='Login']");
 
 
     public NaukriLoginPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.MAX_WAIT_TIME_TO_FIND_ELEMENT));
         PageFactory.initElements(driver, this);
     }
 
@@ -46,12 +49,18 @@ public class NaukriLoginPage extends SeleniumControls {
         }
         return val;
     }
-    public ResponseFromPage editResumeHeadline() {
-        WebElement editResumeHeadline = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=\"Resume headline\"]/following-sibling::span")));
+    public ResponseFromPage editResumeHeadline() throws InterruptedException {
+        By byViewProfileBtn = By.xpath("//div[@class='view-profile-wrapper']/a");
+        WebElement viewProfileBtn = wait.until(ExpectedConditions.elementToBeClickable(byViewProfileBtn));
+        viewProfileBtn.click();
+        Thread.sleep(2000);
+        By byResumeHeadlineEditBtn = By.xpath("//span[text()='Resume headline']/following-sibling::span");
+        WebElement editResumeHeadline = wait.until(ExpectedConditions.elementToBeClickable(byResumeHeadlineEditBtn));
         editResumeHeadline.click();
 
         WebElement resumeHeadlineTxt = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resumeHeadlineTxt")));
         String resumeHeadlineText = resumeHeadlineTxt.getAttribute("value");
+        System.out.println("Current resume headline: " + resumeHeadlineText);
         assert resumeHeadlineText != null;
         char lastChar = resumeHeadlineText.charAt(resumeHeadlineText.length() - 1);
 
@@ -71,9 +80,9 @@ public class NaukriLoginPage extends SeleniumControls {
     }
 
     public ResponseFromPage saveProfile() {
-        WebElement saveBtn = driver.findElement(By.xpath("//button[text()=\"Save\"]"));
+        WebElement saveBtn = driver.findElement(By.xpath("//button[text()='Save']"));
         saveBtn.click();
-        WebElement profileUpdateMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()=\"Profile updated successfully\" and @class=\"success-text\"]")));
+        WebElement profileUpdateMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Profile updated successfully' and @class='success-text']")));
         //capture screenshot for profile updated successfully:
         try {
             //create screenshot dir under target:

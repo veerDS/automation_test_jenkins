@@ -20,13 +20,14 @@ public class GlobalDriver {
 	private GlobalDriver(String selectedBrowser) {
 		switch(selectedBrowser) {
 		case "chrome":
-		    ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new"); // modern headless mode
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            driver = new ChromeDriver(options);
-            driver.manage().window().setSize(new Dimension(1920, 1080));
-            //driver.manage().window().maximize();
+//		    ChromeOptions options = new ChromeOptions();
+//            options.addArguments("--headless=new"); // modern headless mode
+//            options.addArguments("--no-sandbox");
+//            options.addArguments("--disable-dev-shm-usage");
+//            driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
+//            driver.manage().window().setSize(new Dimension(1920, 1080));
+            driver.manage().window().maximize();
 			break;
 		case "edge":
 			driver = new EdgeDriver();

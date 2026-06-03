@@ -50,7 +50,7 @@ public class NaukriProfileUpdate extends Print {
 	public void login(String emailAddress, String password)throws Throwable {
         responseFromPage=pageTemplate.clickButton("Login Button",naukriLoginPage.getByWithKey("Login Button"));
         log();
-		responseFromPage=pageTemplate.verifyTitle("Home | Mynaukri");
+		responseFromPage=pageTemplate.verifyTitle("Jobseeker's Login: Search the Best Jobs available in India & Abroad - Naukri.com");
 		log();
 		responseFromPage=pageTemplate.enterDetails(emailAddress,"Email Id",naukriLoginPage.getByWithKey("Email Id"));
 		log();
