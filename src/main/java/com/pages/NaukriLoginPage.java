@@ -16,7 +16,7 @@ public class NaukriLoginPage extends SeleniumControls {
     WebDriverWait wait;
     String fixedXpathExample = "//div[@id='content']//a[text()='";
 
-    By loginBtnBy = By.id("login_Layer");
+    By loginBtnBy = By.xpath("//a[@id='login_Layer']");
     By byUserName = By.xpath("//input[@placeholder=\"Enter your active Email ID / Username\"]");
     By byPassword = By.xpath("//input[@placeholder=\"Enter your password\"]");
     By bySignIn = By.xpath("//button[text()=\"Login\"]");
