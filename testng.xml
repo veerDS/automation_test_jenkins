@@ -9,12 +9,13 @@
 	<test parallel="false" name="Chrome">
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="emailAddress" value="veerdhavalshinde@gmail.com"></parameter>
-		<parameter name="password" value="Omsairam@2712"></parameter>
+		<parameter name="password" value="F$esta@09876"></parameter>
 		<classes>
 			<!-- <class name="com.tests.BoxAppLoginLogOut" />
 			<class name="com.tests.BoxAppCreateDeleteFolder" />
-			<class name="com.tests.BoxAppDevelopers" /> -->
-			<class name="com.tests.UnicornSignUp" />
+			<class name="com.tests.BoxAppDevelopers" />
+			<class name="com.tests.UnicornSignUp" /> -->
+			<class name="com.tests.NaukriProfileUpdate" />
 		</classes>
 	</test>
 	<!-- <test parallel ="false" name="Edge">

@@ -1,0 +1,39 @@
+name: Run NaukriProfileUpdate Suite
+
+on:
+  workflow_dispatch:   # Manual trigger
+  schedule:
+    - cron: '0 */3 * * *'   # Every 3 hours (UTC)
+
+jobs:
+  run-naukri-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
+
+      - name: Verify Chrome & Driver
+        run: |
+          google-chrome --version
+          chromedriver --version
+
+      - name: Run TestNG suite
+        run: mvn clean test -DsuiteXmlFile=testng.xml
+
+      - name: Upload TestNG Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: testng-report
+          path: target/surefire-reports/
