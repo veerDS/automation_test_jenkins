@@ -31,9 +31,3 @@ jobs:
 
       - name: Run TestNG suite
         run: mvn clean test -DsuiteXmlFile=testng.xml
-
-      - name: Upload TestNG Reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: testng-report
-          path: target/surefire-reports/
