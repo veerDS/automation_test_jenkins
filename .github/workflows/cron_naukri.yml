@@ -2,8 +2,8 @@ name: Run NaukriProfileUpdate Suite
 
 on:
   workflow_dispatch:   # Manual trigger
-  schedule:
-    - cron: '0 */3 * * *'   # Every 3 hours (UTC)
+  #schedule:
+    #- cron: '0 */3 * * *'   # Every 3 hours (UTC)
 
 jobs:
   run-naukri-suite:
