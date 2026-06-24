@@ -15,7 +15,7 @@
 			<class name="com.tests.BoxAppCreateDeleteFolder" />
 			<class name="com.tests.BoxAppDevelopers" />
 			<class name="com.tests.UnicornSignUp" /> -->
-			<class name="com.tests.GoogleSearchTest" />
+			<class name="com.tests.PracticeTestLoginTest" />
 		</classes>
 	</test>
 	<!-- <test parallel ="false" name="Edge">

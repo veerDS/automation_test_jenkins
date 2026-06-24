@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">This is my first Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 14, 2026 11:37:14 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jun 18, 2026 10:13:52 am</span></a>
 </li>
 </ul>
 </div>
@@ -86,7 +86,7 @@
           <div class="test-detail">
             <p class="name">SiteCore</p>
             <p class="text-sm">
-              <span>11:37:14 pm</span> / <span>00:00:17:990</span>
+              <span>10:13:53 am</span> / <span>00:03:09:148</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -95,9 +95,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">SiteCore</h5>
-<span class='badge badge-success'>06.14.2026 11:37:14 pm</span>
-<span class='badge badge-danger'>06.14.2026 11:37:32 pm</span>
-<span class='badge badge-default'>00:00:17:990</span>
+<span class='badge badge-success'>06.18.2026 10:13:53 am</span>
+<span class='badge badge-danger'>06.18.2026 10:17:02 am</span>
+<span class='badge badge-default'>00:03:09:148</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -110,7 +110,7 @@
           <div class="card-toolbar node-info">
             <ul class="list-inline d-none d-sm-block">
               <li><span class="badge pass-bg log ">Pass</span></li>
-              <li><span class='badge badge-default'>30:17:969</span></li>
+              <li><span class='badge badge-default'>33:09:117</span></li>
               <li></li>
             </ul>
           </div>
@@ -126,12 +126,12 @@
           <div class="card-toolbar node-info">
             <ul class="list-inline d-none d-sm-block">
               <li><span class="badge pass-bg log ">Pass</span></li>
-              <li><span class='badge badge-default'>30:17:952</span></li>
+              <li><span class='badge badge-default'>33:09:098</span></li>
               <li></li>
             </ul>
           </div>
           <div class="card-title">
-            <a class="node " id="3"><span>GoogleSearchTest</span></a>
+            <a class="node " id="3"><span>PracticeTestLoginTest</span></a>
             <div class="node-attr">
             </div>
           </div>
@@ -142,12 +142,12 @@
           <div class="card-toolbar node-info">
             <ul class="list-inline d-none d-sm-block">
               <li><span class="badge pass-bg log ">Pass</span></li>
-              <li><span class='badge badge-default'>30:00:000</span></li>
+              <li><span class='badge badge-default'>30:00:003</span></li>
               <li></li>
             </ul>
           </div>
           <div class="card-title">
-            <a class="node " id="4"><span>testGoogleSearchWithAutosuggestions</span></a>
+            <a class="node " id="4"><span>testPositiveLogIn</span></a>
             <div class="node-attr">
             </div>
           </div>
@@ -160,9 +160,75 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>11:37:32 pm</td>
+        <td>10:16:53 am</td>
         <td>
-          <br />Successfully opened Google<br /><br />Page title verified: Google<br /><br />Successfully entered 'selenium' in search box<br /><br />Retrieved 5 autosuggestions: 1. selenium | 2. selenium rich foods | 3. selenium interview questions | 4. selenium ide | 5. selenium download | <br />
+          <br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />URL verification passed. Current URL: https://practicetestautomation.com/logged-in-successfully/<br /><br />Success page text verification passed<br /><br />Log out button is displayed on the page<br />
+        </td>
+      </tr>
+  </tbody>
+</table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-toolbar node-info">
+            <ul class="list-inline d-none d-sm-block">
+              <li><span class="badge pass-bg log ">Pass</span></li>
+              <li><span class='badge badge-default'>30:00:000</span></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="card-title">
+            <a class="node " id="5"><span>testNegativeUsernameLogi</span></a>
+            <div class="node-attr">
+            </div>
+          </div>
+        </div>
+        <div class="collapse">
+          <div class="card-body">
+            
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>10:16:57 am</td>
+        <td>
+          <br />Successfully navigated to login page<br /><br />Successfully entered username: incorrectUser<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your username is invalid!<br /><br />Error message text verification passed. Error: Your username is invalid!<br />
+        </td>
+      </tr>
+  </tbody>
+</table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-toolbar node-info">
+            <ul class="list-inline d-none d-sm-block">
+              <li><span class="badge pass-bg log ">Pass</span></li>
+              <li><span class='badge badge-default'>30:00:000</span></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="card-title">
+            <a class="node " id="6"><span>testNegativePasswordLogin</span></a>
+            <div class="node-attr">
+            </div>
+          </div>
+        </div>
+        <div class="collapse">
+          <div class="card-body">
+            
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>10:17:02 am</td>
+        <td>
+          <br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your password is invalid!<br /><br />Error message text verification passed. Error: Your password is invalid!<br />
         </td>
       </tr>
   </tbody>
@@ -190,7 +256,7 @@
 <div class="test-wrapper row view log-view">
   <div class="col-md-12 mt-3">
   	<div class="card"><div class="card-body">
-  	<br />Successfully opened Google<br /><br />Page title verified: Google<br /><br />Successfully entered 'selenium' in search box<br /><br />Retrieved 5 autosuggestions: 1. selenium | 2. selenium rich foods | 3. selenium interview questions | 4. selenium ide | 5. selenium download | <br />
+  	<br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />URL verification passed. Current URL: https://practicetestautomation.com/logged-in-successfully/<br /><br />Success page text verification passed<br /><br />Log out button is displayed on the page<br /><br />Successfully navigated to login page<br /><br />Successfully entered username: incorrectUser<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your username is invalid!<br /><br />Error message text verification passed. Error: Your username is invalid!<br /><br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your password is invalid!<br /><br />Error message text verification passed. Error: Your password is invalid!<br />
   	</div></div>
   </div>
 </div>
@@ -199,13 +265,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 14, 2026 11:37:14 pm</h3>
+<h3>Jun 18, 2026 10:13:52 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 14, 2026 11:37:32 pm</h3>
+<h3>Jun 18, 2026 10:17:02 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -276,7 +342,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>1</b> test passed</small></div>
+<div><small data-tooltip='100%'><b>3</b> test passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> test failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -295,7 +361,7 @@
 </div></div>
 <script>
 var timeline = {
-"SiteCore":17.99
+"SiteCore":189.148
 };
 </script>
 <div class="row">
@@ -336,8 +402,8 @@ failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
-grandChildCount: 1,
-passGrandChild: 1,
+grandChildCount: 3,
+passGrandChild: 3,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,

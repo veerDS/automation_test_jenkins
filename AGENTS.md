@@ -1,4 +1,3 @@
-AutoTestFramework
 # AGENTS.md - AI Coding Agent Guide
 
 This is a Selenium-based test automation project for Jenkins CI/CD integration, using TestNG and ExtentReports.
@@ -8,23 +7,23 @@ This is a Selenium-based test automation project for Jenkins CI/CD integration, 
 ### Core Components
 
 1. **WebDriver Management** (`src/main/java/com/webDriver/GlobalDriver.java`)
-    - Singleton pattern: manages browser instances via static `GlobalDriver` class
-    - Supports parallel execution: `selectBrowser()` handles parallel test mode by maintaining separate driver instances per test
-    - Browser support: Chrome (maximized, non-headless by default), Edge, Firefox
-    - Critical: Headless mode is commented out in lines 23-26; uncomment to enable
-    - Cleanup: `quitBrowser()` iterates through `driverSet` to close all browser instances
+   - Singleton pattern: manages browser instances via static `GlobalDriver` class
+   - Supports parallel execution: `selectBrowser()` handles parallel test mode by maintaining separate driver instances per test
+   - Browser support: Chrome (maximized, non-headless by default), Edge, Firefox
+   - Critical: Headless mode is commented out in lines 23-26; uncomment to enable
+   - Cleanup: `quitBrowser()` iterates through `driverSet` to close all browser instances
 
 2. **Page Object Model (POM)** (`src/main/java/com/pages/`)
-    - Base: `PageTemplate` extends `SeleniumControls` - all page classes inherit this
-    - Pattern: Each page (e.g., `BoxAppLoginPage`, `GoogleSearchPage`) wraps application pages
-    - Response wrapper: All interactions return `ResponseFromPage` objects (boolean status + message)
-    - Examples in codebase: `BoxAppLoginPage`, `UnicornSignupSelfPage`, `GoogleSearchPage`
+   - Base: `PageTemplate` extends `SeleniumControls` - all page classes inherit this
+   - Pattern: Each page (e.g., `BoxAppLoginPage`, `GoogleSearchPage`) wraps application pages
+   - Response wrapper: All interactions return `ResponseFromPage` objects (boolean status + message)
+   - Examples in codebase: `BoxAppLoginPage`, `UnicornSignupSelfPage`, `GoogleSearchPage`
 
 3. **Selenium Controls Layer** (`src/main/java/com/controls/SeleniumControls.java`)
-    - Wrapper methods around Selenium WebDriver API
-    - Includes: click, sendKeys, wait conditions, navigation, alerts, window/frame switching
-    - Uses `WebDriverWait` with `Constants.MAX_WAIT_TIME_TO_FIND_ELEMENT` (typically 10-15 seconds)
-    - Extends `Print` base class for logging
+   - Wrapper methods around Selenium WebDriver API
+   - Includes: click, sendKeys, wait conditions, navigation, alerts, window/frame switching
+   - Uses `WebDriverWait` with `Constants.MAX_WAIT_TIME_TO_FIND_ELEMENT` (typically 10-15 seconds)
+   - Extends `Print` base class for logging
 
 4. **Utilities** (`src/main/java/com/utils/`)
     - `ResponseFromPage`: POJO wrapper for test step responses (isTrue, message, extentMessage); supports dual constructors with/without extentMessage
@@ -40,7 +39,7 @@ This is a Selenium-based test automation project for Jenkins CI/CD integration, 
 1. Tests configured in `testng.xml` with parallel execution settings (10 thread pool, `parallel="tests"`)
 2. Maven-surefire plugin runs tests via `mvn test` (uses testng.xml suite)
 3. `TestListener` captures test results and creates `ExtentReport.html` with hierarchy:
-    - Suite → Test (from XML) → Class (test class) → Method (test method)
+   - Suite → Test (from XML) → Class (test class) → Method (test method)
 4. Failed tests trigger screenshot capture in `FailedTestsScreenshots/` directory
 5. Extent reports include: test status, logs from `log` field (concatenated HTML), screenshots
 
@@ -51,8 +50,8 @@ This is a Selenium-based test automation project for Jenkins CI/CD integration, 
 - Declare: `public WebDriver driver;` (populated by `@BeforeClass`)
 - Declare: `public String log = "";` (for ExtentReports)
 - Use `@BeforeClass` with `ITestContext` parameter to initialize browser via `selectBrowser(ITestContext)`
-    - Call: `selectBrowser("chrome", context.getSuite().getXmlSuite().getParallel().toString(), context.getName())`
-    - Retrieve driver: `driver = getGlobalDriver().getDriver();`
+  - Call: `selectBrowser("chrome", context.getSuite().getXmlSuite().getParallel().toString(), context.getName())`
+  - Retrieve driver: `driver = getGlobalDriver().getDriver();`
 - Use `@BeforeMethod` to reset `log = ""` between tests
 - **Pattern variant**: Add helper method `log()` to combine assertion and logging (see PracticeTestLoginTest.java lines 198-201)
   ```java
@@ -161,11 +160,11 @@ src/test/java/com/
 ## Related Files
 - `testng.xml`: Test suite configuration (parallel mode, browser parameter, test class list)
 - `pom.xml`: Maven dependencies including:
-    - Selenium 4.18.1, TestNG 7.9.0, ExtentReports 5.1.1, ExtentReports TestNG adapter 1.2.0
-    - WebDriverManager 5.4.1 (auto browser driver management)
-    - Apache POI 5.2.3 (Excel file reading for test data)
-    - PDFBox 2.0.24 (PDF handling)
-    - Java compiler target: 21
+  - Selenium 4.18.1, TestNG 7.9.0, ExtentReports 5.1.1, ExtentReports TestNG adapter 1.2.0
+  - WebDriverManager 5.4.1 (auto browser driver management)
+  - Apache POI 5.2.3 (Excel file reading for test data)
+  - PDFBox 2.0.24 (PDF handling)
+  - Java compiler target: 21
 - `ExtentReport.html`: Generated test report (created by TestListener)
 - `FailedTestsScreenshots/`: Auto-created directory for failure screenshots
 - `TestData/`: Directory for Excel files (.xlsx) used by DataProvider in tests
