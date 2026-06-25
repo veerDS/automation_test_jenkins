@@ -1,10 +1,9 @@
 package com.tests;
 
-import com.pages.BoxAppHomePage;
-import com.pages.BoxAppLoginPage;
 import com.pages.NaukriLoginPage;
 import com.pages.PageTemplate;
 import com.utils.Constants;
+import com.utils.ModuleInfo;
 import com.utils.Print;
 import com.utils.ResponseFromPage;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +17,12 @@ import static com.webDriver.GlobalDriver.getGlobalDriver;
 import static com.webDriver.GlobalDriver.selectBrowser;
 import static org.testng.Assert.assertTrue;
 
+
+@ModuleInfo(
+        module = "Test naukri.com Profile Management Module",
+        description = "Covers profile headline edit, resume update and save scenarios"
+)
+
 public class NaukriProfileUpdate extends Print {
 	public WebDriver driver;
     NaukriLoginPage naukriLoginPage;
@@ -28,7 +33,7 @@ public class NaukriProfileUpdate extends Print {
 	 	
 	@BeforeClass
 	@Parameters("browser")
-	public void boxAppLoginPageSteps(String browser, ITestContext context) {
+	public void boxAppLoginPageSteps(String browser, ITestContext context) throws Exception {
 		selectBrowser(browser,context.getSuite().getXmlSuite().getParallel().toString(),context.getName());
 		driver = getGlobalDriver().getDriver();
 		super.driver = driver;
@@ -39,14 +44,14 @@ public class NaukriProfileUpdate extends Print {
 	public void refreshLog() {
 		log="";	
 	}
-	@Test(priority = 1)
-	public void navigateToBoxLogin()throws Throwable {
+	@Test(priority = 1, description = "Verify user can launch the Naukri application successfully")
+	public void navigateToNaukriApp()throws Throwable {
 		responseFromPage=pageTemplate.navigateToApps(Constants.NAUKRI_APP_URL);
 		log();
 		}
 
 	@Parameters({"emailAddress","password"})
-	@Test(priority = 2)
+	@Test(priority = 2, description = "Verify registered user can log in with valid credentials and update profile headline")
 	public void login(String emailAddress, String password)throws Throwable {
         responseFromPage=pageTemplate.clickButton("Login Button",naukriLoginPage.getByWithKey("Login Button"));
         log();

@@ -4,25 +4,23 @@ import static com.webDriver.GlobalDriver.getGlobalDriver;
 import static com.webDriver.GlobalDriver.selectBrowser;
 import static org.testng.Assert.assertTrue;
 
+import com.utils.ModuleInfo;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.pages.PracticeTestLoginPage;
 import com.utils.Print;
 import com.utils.ResponseFromPage;
 
-/**
- * Test class for Practice Test Automation Login Page
- * Contains 3 test cases:
- * 1. Positive LogIn test
- * 2. Negative username test
- * 3. Negative password test
- * 
- * All tests execute in parallel on Chrome browser
- */
+@ModuleInfo(
+        module = "Test practicetestautomation.com Login and Logout Module",
+        description = "Covers login and logout scenarios for the practice test automation site"
+)
+
 public class PracticeTestLoginTest extends Print {
 	public WebDriver driver;
 	private PracticeTestLoginPage loginPage;
@@ -30,10 +28,11 @@ public class PracticeTestLoginTest extends Print {
 	public String log = "";
 
 	@BeforeClass
-	public void setup(ITestContext context) {
+    @Parameters("browser")
+	public void setup(String browser,ITestContext context) throws Exception{
 		System.out.println("========== Setting up test: " + context.getName() + " ==========");
 		// Setup Chrome browser in parallel mode
-		selectBrowser("chrome", context.getSuite().getXmlSuite().getParallel().toString(), context.getName());
+		selectBrowser(browser, context.getSuite().getXmlSuite().getParallel().toString(), context.getName());
 		driver = getGlobalDriver().getDriver();
 		super.driver = driver;
 		loginPage = new PracticeTestLoginPage(driver);
@@ -56,7 +55,7 @@ public class PracticeTestLoginTest extends Print {
 	 * 6. Verify page contains 'Congratulations' or 'successfully logged in'
 	 * 7. Verify Log out button is displayed
 	 */
-	@Test(priority = 1)
+	@Test(priority = 1,description = "Login functionality test with positive flow : Valid username and password")
 	public void testPositiveLogIn() {
 		System.out.println("\n========== Test Case 1: Positive LogIn Test ==========");
 
@@ -108,7 +107,7 @@ public class PracticeTestLoginTest extends Print {
 	 * 5. Verify error message is displayed
 	 * 6. Verify error message text is 'Your username is invalid!'
 	 */
-	@Test(priority = 2)
+	@Test(priority = 2, description = "Login functionality test with negative flow : Invalid username and valid password")
 	public void testNegativeUsernameLogi() {
 		System.out.println("\n========== Test Case 2: Negative Username Test ==========");
 
@@ -155,7 +154,7 @@ public class PracticeTestLoginTest extends Print {
 	 * 5. Verify error message is displayed
 	 * 6. Verify error message text is 'Your password is invalid!'
 	 */
-	@Test(priority = 3)
+	@Test(priority = 3, description = "Login functionality test with negative flow : Valid username and invalid password")
 	public void testNegativePasswordLogin() {
 		System.out.println("\n========== Test Case 3: Negative Password Test ==========");
 

@@ -1,5 +1,7 @@
 package com.tests;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,17 +12,27 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
 public class SampleTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 //
 //		WebDriverManager.chromedriver().setup();
 //		WebDriver driver=new ChromeDriver();
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(45));
 //		driver.manage().window().maximize();
-		
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        URL url = new URL("http://localhost:4444/wd/hub");
+        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(url, capabilities);
+        remoteWebDriver.get("https://www.google.com");
+        Thread.sleep(5000);
+        System.out.println(remoteWebDriver.getTitle());
+        remoteWebDriver.quit();
 		combinations();
 		wordOcc();
 		charOcc('a');

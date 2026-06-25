@@ -27,7 +27,7 @@ public class GoogleSearchTest extends Print {
     public String log = "";
     
     @BeforeClass
-    public void setup(ITestContext context) {
+    public void setup(ITestContext context) throws Exception {
         // Setup Chrome browser in non-headless mode
         selectBrowser("chrome", context.getSuite().getXmlSuite().getParallel().toString(), context.getName());
         driver = getGlobalDriver().getDriver();

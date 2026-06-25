@@ -11,7 +11,7 @@
 <link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
-<style type="text/css"></style></head><body class="spa -report standard">
+<style type="text/css">.info .badge-default ~ .m-l-5 { display: none !important; }</style></head><body class="spa -report standard">
   <div class="app">
     <div class="layout">
 <div class="header navbar">
@@ -32,10 +32,10 @@
 </ul>
 <ul class="nav-right">
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">This is my first Report</span></a>
+<a href="#"><span class="badge badge-primary">Automation Test Results</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 18, 2026 10:13:52 am</span></a>
+<a href="#"><span class="badge badge-primary">Jun 25, 2026 04:38:49 pm</span></a>
 </li>
 </ul>
 </div>
@@ -71,7 +71,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -79,26 +79,26 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">SiteCore</p>
+            <p class="name">Automation Test Suite</p>
             <p class="text-sm">
-              <span>10:13:53 am</span> / <span>00:03:09:148</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>4:38:49 pm</span> / <span>00:01:22:757</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">SiteCore</h5>
-<span class='badge badge-success'>06.18.2026 10:13:53 am</span>
-<span class='badge badge-danger'>06.18.2026 10:17:02 am</span>
-<span class='badge badge-default'>00:03:09:148</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<h5 class="test-status text-fail">Automation Test Suite</h5>
+<span class='badge badge-success'>06.25.2026 4:38:49 pm</span>
+<span class='badge badge-danger'>06.25.2026 4:40:12 pm</span>
+<span class='badge badge-default'>00:01:22:757</span>
+
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
@@ -109,13 +109,29 @@
         <div class="card-header">
           <div class="card-toolbar node-info">
             <ul class="list-inline d-none d-sm-block">
-              <li><span class="badge pass-bg log ">Pass</span></li>
-              <li><span class='badge badge-default'>33:09:117</span></li>
-              <li></li>
+              <li><span class="badge fail-bg log ">Fail</span></li>
+              <li><span class='badge badge-default'>31:22:722</span></li>
+              <li><span><i class="fa fa-paperclip"></i></span></li>
             </ul>
           </div>
           <div class="card-title">
-            <a class="node " id="2"><span>Chrome</span></a>
+            <a class="node " id="2"><span>Browser - Chrome</span></a>
+            <div class="node-attr">
+            </div>
+          </div>
+        </div>
+  <div class="accordion" role="tablist">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-toolbar node-info">
+            <ul class="list-inline d-none d-sm-block">
+              <li><span class="badge fail-bg log ">Fail</span></li>
+              <li><span class='badge badge-default'>31:06:527</span></li>
+              <li><span><i class="fa fa-paperclip"></i></span></li>
+            </ul>
+          </div>
+          <div class="card-title">
+            <a class="node " id="3"><span>Test naukri.com Profile Management Module</span></a>
             <div class="node-attr">
             </div>
           </div>
@@ -126,28 +142,12 @@
           <div class="card-toolbar node-info">
             <ul class="list-inline d-none d-sm-block">
               <li><span class="badge pass-bg log ">Pass</span></li>
-              <li><span class='badge badge-default'>33:09:098</span></li>
+              <li><span class='badge badge-default'>30:00:004</span></li>
               <li></li>
             </ul>
           </div>
           <div class="card-title">
-            <a class="node " id="3"><span>PracticeTestLoginTest</span></a>
-            <div class="node-attr">
-            </div>
-          </div>
-        </div>
-  <div class="accordion" role="tablist">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-toolbar node-info">
-            <ul class="list-inline d-none d-sm-block">
-              <li><span class="badge pass-bg log ">Pass</span></li>
-              <li><span class='badge badge-default'>30:00:003</span></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="card-title">
-            <a class="node " id="4"><span>testPositiveLogIn</span></a>
+            <a class="node " id="4"><span>Verify user can launch the Naukri application successfully</span></a>
             <div class="node-attr">
             </div>
           </div>
@@ -160,7 +160,95 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:16:53 am</td>
+        <td>4:38:53 pm</td>
+        <td>
+          <br />url: https://www.naukri.com/nlogin/login is available<br />
+        </td>
+      </tr>
+  </tbody>
+</table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-toolbar node-info">
+            <ul class="list-inline d-none d-sm-block">
+              <li><span class="badge fail-bg log ">Fail</span></li>
+              <li><span class='badge badge-default'>30:00:213</span></li>
+              <li><span><i class="fa fa-paperclip"></i></span></li>
+            </ul>
+          </div>
+          <div class="card-title">
+            <a class="node " id="5"><span>Verify registered user can log in with valid credentials and update profile headline</span></a>
+            <div class="node-attr">
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card-body">
+            
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>4:39:56 pm</td>
+        <td>
+          <br />Login Button button is clicked<br /></br>java.lang.AssertionError: Wrong title: Naukri.com expected [true] but found [false]
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='FailedTestsScreenshots/Browser - Chrome_login_Thu_Jun_25_16_39_56_IST_2026.png' src="FailedTestsScreenshots/Browser - Chrome_login_Thu_Jun_25_16_39_56_IST_2026.png">
+    <div class="title">Browser - Chrome_login_Thu_Jun_25_16_39_56_IST_2026</div>
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+          </div>
+        </div>
+      </div>
+  </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-toolbar node-info">
+            <ul class="list-inline d-none d-sm-block">
+              <li><span class="badge pass-bg log ">Pass</span></li>
+              <li><span class='badge badge-default'>30:16:151</span></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="card-title">
+            <a class="node " id="6"><span>Test practicetestautomation.com Login and Logout Module</span></a>
+            <div class="node-attr">
+            </div>
+          </div>
+        </div>
+  <div class="accordion" role="tablist">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-toolbar node-info">
+            <ul class="list-inline d-none d-sm-block">
+              <li><span class="badge pass-bg log ">Pass</span></li>
+              <li><span class='badge badge-default'>30:00:001</span></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="card-title">
+            <a class="node " id="7"><span>Login functionality test with positive flow : Valid username and password</span></a>
+            <div class="node-attr">
+            </div>
+          </div>
+        </div>
+        <div class="collapse">
+          <div class="card-body">
+            
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>4:40:03 pm</td>
         <td>
           <br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />URL verification passed. Current URL: https://practicetestautomation.com/logged-in-successfully/<br /><br />Success page text verification passed<br /><br />Log out button is displayed on the page<br />
         </td>
@@ -180,7 +268,7 @@
             </ul>
           </div>
           <div class="card-title">
-            <a class="node " id="5"><span>testNegativeUsernameLogi</span></a>
+            <a class="node " id="8"><span>Login functionality test with negative flow : Invalid username and valid password</span></a>
             <div class="node-attr">
             </div>
           </div>
@@ -193,7 +281,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:16:57 am</td>
+        <td>4:40:07 pm</td>
         <td>
           <br />Successfully navigated to login page<br /><br />Successfully entered username: incorrectUser<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your username is invalid!<br /><br />Error message text verification passed. Error: Your username is invalid!<br />
         </td>
@@ -213,7 +301,7 @@
             </ul>
           </div>
           <div class="card-title">
-            <a class="node " id="6"><span>testNegativePasswordLogin</span></a>
+            <a class="node " id="9"><span>Login functionality test with negative flow : Valid username and invalid password</span></a>
             <div class="node-attr">
             </div>
           </div>
@@ -226,7 +314,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>10:17:02 am</td>
+        <td>4:40:12 pm</td>
         <td>
           <br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your password is invalid!<br /><br />Error message text verification passed. Error: Your password is invalid!<br />
         </td>
@@ -256,7 +344,7 @@
 <div class="test-wrapper row view log-view">
   <div class="col-md-12 mt-3">
   	<div class="card"><div class="card-body">
-  	<br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />URL verification passed. Current URL: https://practicetestautomation.com/logged-in-successfully/<br /><br />Success page text verification passed<br /><br />Log out button is displayed on the page<br /><br />Successfully navigated to login page<br /><br />Successfully entered username: incorrectUser<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your username is invalid!<br /><br />Error message text verification passed. Error: Your username is invalid!<br /><br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your password is invalid!<br /><br />Error message text verification passed. Error: Your password is invalid!<br />
+  	<br />url: https://www.naukri.com/nlogin/login is available<br /><br />Login Button button is clicked<br /></br>java.lang.AssertionError: Wrong title: Naukri.com expected [true] but found [false]<br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />URL verification passed. Current URL: https://practicetestautomation.com/logged-in-successfully/<br /><br />Success page text verification passed<br /><br />Log out button is displayed on the page<br /><br />Successfully navigated to login page<br /><br />Successfully entered username: incorrectUser<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your username is invalid!<br /><br />Error message text verification passed. Error: Your username is invalid!<br /><br />Successfully navigated to login page<br /><br />Successfully entered username: student<br /><br />Successfully entered password<br /><br />Successfully clicked Submit button<br /><br />Error message is displayed: Your password is invalid!<br /><br />Error message text verification passed. Error: Your password is invalid!<br />
   	</div></div>
   </div>
 </div>
@@ -265,25 +353,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 18, 2026 10:13:52 am</h3>
+<h3>Jun 25, 2026 04:38:49 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 18, 2026 10:17:02 am</h3>
+<h3>Jun 25, 2026 04:40:12 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Suite Passed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Suite Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -299,12 +387,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> suite passed
+<div><small data-tooltip='0%'>
+<b>0</b> suite passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> suite failed,
+<small data-tooltip='100%'><b>1</b> suite failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -322,9 +410,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>1</b> class passed</small></div>
+<div><small data-tooltip='0%'><b>0</b> class passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> class failed,
+<small data-tooltip='100%'><b>1</b> class failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -342,9 +430,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>3</b> test passed</small></div>
+<div><small data-tooltip='100%'><b>4</b> test passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> test failed,
+<small data-tooltip='0%'><b>1</b> test failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -361,7 +449,7 @@
 </div></div>
 <script>
 var timeline = {
-"SiteCore":189.148
+"Automation Test Suite":82.757
 };
 </script>
 <div class="row">
@@ -373,11 +461,11 @@ var timeline = {
 <tbody>
 <tr>
 <td>Name</td>
-<td>Rakesh</td>
+<td>Automation QA</td>
 </tr>
 <tr>
 <td>Machine</td>
-<td>Test</td>
+<td>Test-001</td>
 </tr>
 <tr>
 <td>OS</td>
@@ -392,19 +480,19 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 0,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 1,
-failChild: 0,
+passChild: 0,
+failChild: 1,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
-grandChildCount: 3,
-passGrandChild: 3,
-failGrandChild: 0,
+grandChildCount: 5,
+passGrandChild: 4,
+failGrandChild: 1,
 warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,

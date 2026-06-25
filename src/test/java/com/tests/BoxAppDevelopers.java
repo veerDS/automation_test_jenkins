@@ -33,7 +33,7 @@ public class BoxAppDevelopers extends Print {
 	
 	@BeforeClass 
 	@Parameters("browser")  
-	public void boxAppDevelopersSteps(String browser,ITestContext context) {
+	public void boxAppDevelopersSteps(String browser,ITestContext context) throws Exception{
 		selectBrowser(browser,context.getSuite().getXmlSuite().getParallel().toString(),context.getName());
 		driver = getGlobalDriver().getDriver();
 		super.driver = driver;

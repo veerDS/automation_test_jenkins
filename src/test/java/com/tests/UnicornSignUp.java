@@ -32,7 +32,7 @@ public class UnicornSignUp extends Print {
 	 	
 	@BeforeClass
 	@Parameters("browser")
-	public void boxAppLoginPageSteps(String browser, ITestContext context) {
+	public void boxAppLoginPageSteps(String browser, ITestContext context) throws Exception {
 		selectBrowser(browser,context.getSuite().getXmlSuite().getParallel().toString(),context.getName());
 		driver = getGlobalDriver().getDriver();
 		super.driver = driver;
@@ -62,7 +62,7 @@ public class UnicornSignUp extends Print {
 
 	
 	
-	@Test(groups = "smoke", priority = 3,dataProvider="unicornSignup", dataProviderClass = DataAccess.class)
+	@Test(priority = 3,dataProvider="unicornSignup", dataProviderClass = DataAccess.class)
 	public void signUp(String agencyName,String agencyAddress,String city,String state,String zipCode,
 			String businessType,String dealsType,String businessLocation,String dealingStates,
 			String noOfEmployes,String firstName,String lastName,String emailAddress )throws Throwable {
