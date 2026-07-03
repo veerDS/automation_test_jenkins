@@ -7,10 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -45,6 +42,9 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
             "grandChildCount:", "passGrandChild:", "failGrandChild:", "skipGrandChild:","uri-anchor"
     };
     private int totalTestCount, passedTestCount, failedTestCount, skippedTestCount;
+
+    // ── 1. ADD FIELD — result collector ─────────────────────────────────────────
+    private final List<TestResult> suiteResults = new ArrayList<>();
 
     // ─── NEW HELPER ──────────────────────────────────────────────────────────────
     /**
@@ -109,6 +109,7 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
     }
 
     public void onTestSuccess(ITestResult result) {
+        suiteResults.add(new TestResult(getTestDisplayName(result), TestResult.PASSED, "Executed Successfully"));
         String message = " ";
         System.out.println("Name of the test method successfully executed: " + result.getName());
         String displayName = getTestDisplayName(result);                          // ← CHANGED
@@ -127,6 +128,10 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
     }
 
     public void onTestFailure(ITestResult result) {
+        String reason = result.getThrowable() != null
+                ? result.getThrowable().getMessage()
+                : "Unknown failure";
+        suiteResults.add(new TestResult(getTestDisplayName(result), TestResult.FAILED, reason));
         WebDriver driver = null;
         String message = " ";
         String displayName = getTestDisplayName(result);                          // ← CHANGED
@@ -168,6 +173,10 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
     }
 
     public void onTestSkipped(ITestResult result) {
+        String reason = result.getThrowable() != null
+                ? result.getThrowable().getMessage()
+                : "Test was skipped";
+        suiteResults.add(new TestResult(getTestDisplayName(result), TestResult.SKIPPED, reason));
         String message = " ";
         System.out.println("Name of test method skipped: " + result.getName());
         String displayName = getTestDisplayName(result);                          // ← CHANGED
@@ -200,6 +209,7 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
     public void onFinish(ISuite suite) {
         reports.flush();
         qutitBrowser();
+        ReportGenerator.generateReports(suiteResults, suite.getXmlSuite().getName());
         boolean isContains = false;
         String path = System.getProperty("user.dir") + "/ExtentListenerReportDemo.html";
         try {
