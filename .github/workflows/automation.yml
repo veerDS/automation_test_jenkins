@@ -17,16 +17,17 @@ on:
 
       emailID:
         description: 'Email address to send results to'
-        required: false
+        required: true
+        default: 'veerdhavalshinde@gmail.com'
 
 #  schedule:
 #    - cron: "0 6 * * 1-5"   # Weekdays at 6 AM UTC
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
   run_tests:
     runs-on: ubuntu-latest
-    # Run on both success AND failure so email always sends
-    if: always()
 
     steps:
 
@@ -49,13 +50,8 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
 
-      - name: Set up Node.js (for index.js)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Node dependencies
-        run: npm install @actions/core @actions/github
+      - name: Install action dependencies
+        run: npm install
         working-directory: .github/actions/run-tests
 
       # ── Run tests + generate reports ───────────────────────────────────────
@@ -76,21 +72,20 @@ jobs:
           name: TestNG-Reports-${{ github.run_number }}
           path: |
             CustomReports/
-            ExtentReport.html
-            FailedTestsScreenshots/
-          retention-days: 7
+            ExtentReport.html/
+          retention-days: 2
 
       # ── Send email ─────────────────────────────────────────────────────────
       - name: Send email notification
         if: ${{ inputs.emailID != '' && always() }}
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@v4
         with:
           server_address: smtp.gmail.com
           server_port:    465
           username:       ${{ secrets.EMAIL_USERNAME }}
           password:       ${{ secrets.EMAIL_PASSWORD }}
           subject:        |
-            [${{ job.status == 'success' && 'PASS' || 'FAIL' }}]
+            ${{ job.status == 'success' && 'PASS' || 'FAIL' }} —
             ${{ github.repository }} — ${{ github.workflow }} #${{ github.run_number }}
           to:             ${{ inputs.emailID }}
           from:           Automation Reports <${{ secrets.EMAIL_USERNAME }}>
