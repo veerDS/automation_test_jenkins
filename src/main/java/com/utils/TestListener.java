@@ -5,6 +5,7 @@ import static com.webDriver.GlobalDriver.qutitBrowser;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -45,6 +46,8 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
 
     // ── 1. ADD FIELD — result collector ─────────────────────────────────────────
     private final List<TestResult> suiteResults = new ArrayList<>();
+    // ── ADD field alongside suiteResults ────────────────────────────────────────
+    private String emailSummaryHtml = "";
 
     // ─── NEW HELPER ──────────────────────────────────────────────────────────────
     /**
@@ -210,6 +213,9 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
         reports.flush();
         qutitBrowser();
         ReportGenerator.generateReports(suiteResults, suite.getXmlSuite().getName());
+        // ↓ NEW — generate email-safe summary and write to file for index.js to read
+        emailSummaryHtml = ReportGenerator.generateEmailSummary(suiteResults);
+        writeEmailSummary(emailSummaryHtml);
         boolean isContains = false;
         String path = System.getProperty("user.dir") + "/ExtentListenerReportDemo.html";
         try {
@@ -281,5 +287,20 @@ public class TestListener implements ITestListener, ISuiteListener, IClassListen
                 break;
         }
         return val;
+    }
+    /**
+     * Writes the email-safe HTML snippet to CustomReports/emailSummary.html
+     * GitHub Actions index.js reads this file and injects it into the email body.
+     */
+    private void writeEmailSummary(String html) {
+        File outputFile = new File("CustomReports/emailSummary.html");
+        try {
+            FileUtils.writeStringToFile(outputFile, html, StandardCharsets.UTF_8);
+            System.out.println("[TestListener] Email summary written: "
+                    + outputFile.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("[TestListener] ERROR writing emailSummary.html: "
+                    + e.getMessage());
+        }
     }
 }

@@ -1,0 +1,144 @@
+name: Automation Test Suite
+
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Browser to run tests on'
+        required: false
+        default: 'chrome'
+        type: choice
+        options: [chrome, firefox, edge]
+
+      suiteFile:
+        description: 'TestNG suite XML file'
+        required: false
+        default: 'testng.xml'
+
+      emailID:
+        description: 'Email address to send results to'
+        required: false
+
+#  schedule:
+#    - cron: "0 6 * * 1-5"   # Weekdays at 6 AM UTC
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    # Run on both success AND failure so email always sends
+    if: always()
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+      - name: Set up Node.js (for index.js)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: npm install @actions/core @actions/github
+        working-directory: .github/actions/run-tests
+
+      # ── Run tests + generate reports ───────────────────────────────────────
+      - name: Run TestNG Suite
+        id: runTests
+        # continue even if tests fail — reports must still be emailed
+        continue-on-error: true
+        uses: ./.github/actions/run-tests
+        with:
+          browser:   ${{ inputs.browser   || 'chrome' }}
+          suiteFile: ${{ inputs.suiteFile || 'testng.xml' }}
+
+      # ── Upload reports as artifacts ────────────────────────────────────────
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestNG-Reports-${{ github.run_number }}
+          path: |
+            CustomReports/
+            ExtentReport.html
+            FailedTestsScreenshots/
+          retention-days: 7
+
+      # ── Send email ─────────────────────────────────────────────────────────
+      - name: Send email notification
+        if: ${{ inputs.emailID != '' && always() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port:    465
+          username:       ${{ secrets.EMAIL_USERNAME }}
+          password:       ${{ secrets.EMAIL_PASSWORD }}
+          subject:        |
+            [${{ job.status == 'success' && 'PASS' || 'FAIL' }}]
+            ${{ github.repository }} — ${{ github.workflow }} #${{ github.run_number }}
+          to:             ${{ inputs.emailID }}
+          from:           Automation Reports <${{ secrets.EMAIL_USERNAME }}>
+          # ── Email body: emailSummary (SVG chart, no JS) ───────────────────
+          html_body: |
+            <div style="font-family:Segoe UI,Arial,sans-serif;max-width:700px">
+
+              <!-- Run metadata -->
+              <table width="100%" cellpadding="6" cellspacing="0"
+                     style="background:#f8f9fa;border-radius:6px;margin-bottom:16px;
+                            font-size:13px;color:#555">
+                <tr>
+                  <td><b>Repository:</b></td>
+                  <td>${{ github.repository }}</td>
+                  <td><b>Run #:</b></td>
+                  <td>${{ github.run_number }}</td>
+                </tr>
+                <tr>
+                  <td><b>Branch:</b></td>
+                  <td>${{ github.ref_name }}</td>
+                  <td><b>Duration:</b></td>
+                  <td>${{ steps.runTests.outputs.testExecutionTime }}</td>
+                </tr>
+                <tr>
+                  <td><b>Browser:</b></td>
+                  <td>${{ inputs.browser || 'chrome' }}</td>
+                  <td><b>Triggered by:</b></td>
+                  <td>${{ github.actor }}</td>
+                </tr>
+              </table>
+
+              <!-- Actions run link -->
+              <p style="margin:0 0 16px;font-size:13px">
+                <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                   style="color:#2980b9">View full run in GitHub Actions →</a>
+              </p>
+
+              <!-- SVG summary chart + stats table (from emailSummary.html) -->
+              ${{ steps.runTests.outputs.emailSummary }}
+
+              <!-- Collapsible test case details table -->
+              <details style="margin-top:16px">
+                <summary style="cursor:pointer;font-size:14px;font-weight:500;
+                                color:#2c3e50;padding:8px 0">
+                  Test Case Details
+                </summary>
+                ${{ steps.runTests.outputs.testcaseDetails }}
+              </details>
+
+            </div>
+          convert_markdown: false
