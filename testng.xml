@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="tests" thread-count="10" name="SiteCore"
-	data-provider-thread-count="1">
-	<listeners>
-		<!--<listener class-name="com.aventstack.extentreports.testng.listener.ExtentIReporterSuiteListenerAdapter"></listener>-->
-		<listener class-name="com.utils.TestListener"></listener>
-	</listeners>
-	<test parallel="false" name="Chrome">
-		<parameter name="browser" value="chrome"></parameter>
-		<parameter name="emailAddress" value="veerdhavalshinde@gmail.com"></parameter>
-		<parameter name="password" value="F$esta@09876"></parameter>
-		<classes>
-			<!-- <class name="com.tests.BoxAppLoginLogOut" />
-			<class name="com.tests.BoxAppCreateDeleteFolder" />
-			<class name="com.tests.BoxAppDevelopers" />
-			<class name="com.tests.UnicornSignUp" /> -->
-			<class name="com.tests.NaukriProfileUpdate" />
-		</classes>
-	</test>
-	<!-- <test parallel ="false" name="Edge">
-  <parameter name="browser" value="edge"></parameter>
-  <parameter name="emailAddress" value="palarakeshreddy@gmail.com"></parameter>
-  <parameter name="password" value="testing123"></parameter>
-    <classes>
-      <class name="com.tests.BoxAppLoginLogOut"/>
-      <class name="com.tests.BoxAppCreateDeleteFolder"/>
-      <class name="com.tests.BoxAppDevelopers"/> 
-      <class name="com.tests.UnicornSignUp"/>   
-    </classes>
-  </test> -->
-	<!-- Test -->
-</suite> <!--
-Suite -->
+<suite parallel="tests" thread-count="10" name="Automation Test Suite"
+       data-provider-thread-count="1">
+    <listeners>
+        <listener class-name="com.utils.TestListener"></listener>
+    </listeners>
+    <test parallel="false" name="Browser - Chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="emailAddress" value="veerdhavalshinde@gmail.com"></parameter>
+        <parameter name="password" value="F$esta@09876"></parameter>
+        <classes>
+            <class name="com.tests.NaukriProfileUpdate"/>
+            <class name="com.tests.PracticeTestLoginTest"/>
+        </classes>
+    </test>
+    <!--<test parallel="false" name="Firefox">
+       <parameter name="browser" value="firefox-docker"></parameter>
+       <classes>
+           <class name="com.tests.UnicornSignUp"/>
+       </classes>
+   </test>-->
+</suite>

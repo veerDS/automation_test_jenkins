@@ -1,0 +1,30 @@
+name: 'Run TestNG Tests'
+description: 'Executes TestNG suite and exposes HTML report outputs'
+
+inputs:
+  browser:
+    description: 'Browser to use'
+    required: false
+    default: 'chrome'
+  suiteFile:
+    description: 'TestNG XML suite file'
+    required: false
+    default: 'testng.xml'
+
+outputs:
+  emailSummary:
+    description: 'Email-safe HTML summary with SVG chart'
+  testcaseDetails:
+    description: 'Full test case details HTML table'
+  summary:
+    description: 'Full summary HTML'
+  testExecutionTime:
+    description: 'Human-readable execution duration'
+  testStartTime:
+    description: 'ISO execution start timestamp'
+  testFinishTime:
+    description: 'ISO execution finish timestamp'
+
+runs:
+  using: 'node20'
+  main: 'index.js'

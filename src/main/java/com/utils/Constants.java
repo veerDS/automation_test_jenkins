@@ -6,5 +6,5 @@ public class Constants {
             BOX_APP_URL = "https://account.box.com/login",
             UNICORN_APP_URL = "https://trainee-web-app.azurewebsites.net/auth/login";
     public static final int
-            MAX_WAIT_TIME_TO_FIND_ELEMENT = 60;
+            MAX_WAIT_TIME_TO_FIND_ELEMENT = 20;
 }
