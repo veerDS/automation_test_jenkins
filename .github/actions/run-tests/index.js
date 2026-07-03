@@ -6,7 +6,7 @@ const path         = require('path');
 // ── Inputs ───────────────────────────────────────────────────────────────────
 const _browser     = core.getInput('browser')     || 'chrome';
 const _suiteFile   = core.getInput('suiteFile')   || 'testng.xml';
-const _emailID     = core.getInput('emailID');
+
 
 // Report files your TestNG listener generates
 const REPORT_DIR   = 'CustomReports';
@@ -139,4 +139,7 @@ function calculateDuration(start, end) {
     return `${String(seconds).padStart(2,'0')}s`;
 }
 
-module.exports = { runTestNG };
+// ADD this at the very bottom — replaces module.exports
+runTestNG().catch(error => {
+    core.setFailed(error.message);
+});
