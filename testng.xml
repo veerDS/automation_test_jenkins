@@ -10,14 +10,14 @@
         <parameter name="emailAddress" value="veerdhavalshinde@gmail.com"></parameter>
         <parameter name="password" value="F$esta@09876"></parameter>
         <classes>
-            <class name="com.tests.NaukriProfileUpdate"/>
-            <class name="com.tests.PracticeTestLoginTest"/>
-        </classes>
-    </test>
-    <!--<test parallel="false" name="Firefox">
-       <parameter name="browser" value="firefox-docker"></parameter>
-       <classes>
-           <class name="com.tests.UnicornSignUp"/>
-       </classes>
-   </test>-->
+    <!-- <class name="com.tests.NaukriProfileUpdate"/> -->
+     <class name="com.tests.PracticeTestLoginTest"/>
+ </classes>
+</test>
+<!--<test parallel="false" name="Firefox">
+<parameter name="browser" value="firefox-docker"></parameter>
+<classes>
+    <class name="com.tests.UnicornSignUp"/>
+</classes>
+</test>-->
 </suite>
